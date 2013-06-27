@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Approvaltests.net by approvals</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Approvaltests.net</h1>
+        <p class="header">ApprovalTest verification library for .Net</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/approvals/ApprovalTests.Net/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/approvals/ApprovalTests.Net/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/approvals/ApprovalTests.Net">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/approvals">approvals</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="approvaltests" class="anchor" href="#approvaltests"><span class="octicon octicon-link"></span></a>ApprovalTests</h1>
+
+<p>Capturing Human Intelligence - ApprovalTests is an open source assertion/verification library to aid unit testing.</p>
+
+<p>It is compatiable with most .Net unit testing frameworks (Nunit, MsTest, Xunit, MBUnit)</p>
+
+<h2>
+<a name="what-can-it-be-used-for" class="anchor" href="#what-can-it-be-used-for"><span class="octicon octicon-link"></span></a>What can it be used for?</h2>
+
+<p>Approval Tests can be used for verifing objects that require more than a simple assert. They also come prepackaged with utilities for some common .Net scenarios including</p>
+
+<ul>
+<li>Dictionaries &amp; Collections</li>
+<li>Long Strings</li>
+<li>Log Files</li>
+<li>Asp.Net</li>
+<li>Asp.Net Mvc</li>
+<li>Winforms</li>
+<li>Wpf</li>
+<li>Enitity Framework</li>
+<li>Rdlc reports</li>
+</ul><h2>
+<a name="video-tutorials" class="anchor" href="#video-tutorials"><span class="octicon octicon-link"></span></a><a href="http://www.youtube.com/playlist?list=PL0C32F89E8BBB5368">Video Tutorials</a>
+</h2>
+
+<p>You can watch a bunch of short videos on getting started and <a href="http://www.youtube.com/playlist?list=PL0C32F89E8BBB5368">using ApprovalTests in .Net</a> at youtube</p>
+
+<h2>
+<a name="podcasts" class="anchor" href="#podcasts"><span class="octicon octicon-link"></span></a>Podcasts</h2>
+
+<p>If you prefer auditory learning, you might enjoy the following podcast </p>
+
+<ul>
+<li><a href="http://www.hanselminutes.com/360/approval-tests-with-llewellyn-falco">Hanselminutes</a></li>
+<li><a href="http://www.developerfusion.com/media/122649/herding-code-117-llewellyn-falcon-on-approval-tests/">Herding Code</a></li>
+<li><a href="http://watirpodcast.com/podcast-53/">The Watir Podcast</a></li>
+</ul><h2>
+<a name="available-on-nuget" class="anchor" href="#available-on-nuget"><span class="octicon octicon-link"></span></a>Available on NuGet</h2>
+
+<p><a href="http://nuget.org/packages/ApprovalTests">Install-Package ApprovalTests</a></p>
+
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p><a href="https://github.com/approvals/ApprovalTests.Net/tree/master/ApprovalDemos/GettingStartedDemos">Sample Code</a></p>
+
+<pre><code>[UseReporter(typeof(DiffReporter))]
+[TestFixture]
+public class SampleTest
+{
+    [Test]
+    public void TestList()
+    {
+        var names = new[] {"Llewellyn", "James", "Dan", "Jason", "Katrina"};
+        Array.Sort(names);
+        Approvals.VerifyAll(names, "");
+    }
+}
+</code></pre>
+
+<p>Will Produce a File </p>
+
+<pre><code>SampleTest.TestList.recieved.txt
+[0] = Dan
+[1] = James
+[2] = Jason
+[3] = Katrina
+[4] = Llewellyn
+</code></pre>
+
+<p>Simply rename this to SampleTest.TestList.**approved**.txt and the test will now pass.</p>
+
+<h2>
+<a name="approved-file-artifacts" class="anchor" href="#approved-file-artifacts"><span class="octicon octicon-link"></span></a>Approved File Artifacts</h2>
+
+<p>The <code>*.approved.*</code> files must be checked into source your source control. This can be an issue with git as it will change the line endings. 
+The suggested fix is to add
+<code>*.approved.* binary</code> to your <code>.gitattributes</code></p>
+
+<h2>
+<a name="more-info" class="anchor" href="#more-info"><span class="octicon octicon-link"></span></a>More Info</h2>
+
+<ul>
+<li><a href="http://approvaltests.sourceforge.net/">Website</a></li>
+<li><a href="http://blog.approvaltests.com/">Blog</a></li>
+<li><a href="https://github.com/approvals/ApprovalTests.Net/blob/master/build/Documentation/Approval%20Tests%20-%20Getting%20Started.pdf?raw=true">Getting Started Doc</a></li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>LICENSE</h2>
+
+<p><a href="https://github.com/SignalR/SignalR/blob/master/LICENSE.md">Apache 2.0 License</a></p>
+
+<h2>
+<a name="questions" class="anchor" href="#questions"><span class="octicon octicon-link"></span></a>Questions?</h2>
+
+<p>twitter: <a href="https://twitter.com/#!/llewellynfalco">@LlewellynFalco</a> or #ApprovalTests</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
